@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% block title %}Bblogs{% endblock title %}
+{% block body %} 
+ {% comment %} {% for blogs in blogs %}
+<h1>{{ blogs.title }}</h1>
+<br />
+<p>{{ blogs.content }}</p>
+<br />
+<a href="blog/{{blogs.id}}">click here</a> {% endcomment %}
+
+<div class="container">
+{% for blogs in blogs %}
+  <div class="box">
+    <h2>{{ blogs.title }}</h2>
+    <hr />
+    <br />
+    <p>{{ blogs.content }}</p>
+    <p><a href="blog/{{blogs.id}}" class="link-text">Add Comment</a></p>
+  </div>
+  {% endfor %} 
+</div>
+{% endblock body %}

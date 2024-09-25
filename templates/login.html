@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Bblogs - Login{% endblock title %}
+
+{% block body %}
+<fieldset>
+    <legend>Login from</legend>
+<form action="/login" method="post" id="form">
+
+    {% csrf_token %}
+
+    <div class="input">
+    <label for="Name">Username:</label>
+    <input type="text" name="uname" id="uname" required>
+    </div>
+    <br>
+
+    <div class="input">
+    <label for="Name">Password:</label>
+    <input type="password" name="pass" id="pass" required>
+    </div>
+
+    <br>
+    <button type="submit" class="submit-button" >Login</button>    
+</form> 
+
+</fieldset>
+ 
+
+{% endblock body %}

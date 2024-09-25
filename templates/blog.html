@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Bblogs - Add Blog{% endblock title %}
+
+
+{% block body %}
+<div class="container">
+    <div class="box">
+
+    <h2>{{ blog.title }}</h2>
+    <hr />
+
+    <br>
+    <p>{{ blog.content }}</p>
+    <br>
+
+    <hr />
+ {% for reviews in reviews %}
+<div class="comment-container">
+    <b>
+        {{reviews.user.username}}:
+    </b>
+    <input type="text" value="{{reviews.comment}}" class="blog-comment">
+</div>
+{% endfor %} 
+    <div class="comment-add">
+        <label for="comment">Add Comment</label>
+        <form action="/comment" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{blog.id}}" name="id" value="id">
+            <input type="text" class="blog-comment" name="comment" id="comment" style="width: 90%;" required> 
+            <button type="submit" class="submit-button">Add</button>
+        </form>
+    </div>
+</div>
+
+</div>
+
+{% endblock body %}
+
